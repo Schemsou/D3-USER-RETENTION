@@ -1,0 +1,14 @@
+{
+  "name": "@observablehq/user-retention",
+  "main": "c952f53dbff0e46c@2174.js",
+  "version": "2174.0.0",
+  "homepage": "https://observablehq.com/@observablehq/user-retention",
+  "author": {
+    "name": "Observable",
+    "url": "https://observablehq.com/@observablehq"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}
