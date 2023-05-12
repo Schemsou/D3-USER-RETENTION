@@ -1,10 +1,6 @@
 // https://observablehq.com/@observablehq/cohort-grid@1718
 import define1 from "./a2e58f97fd5e8d7c@754.js";
 
-function _1(md){return(
-md`# User Retention: Cohort Grid Component
-<figcaption>Used in the [User Retention](https://observablehq.com/@observablehq/user-retention) and [User Retention with Segments](https://observablehq.com/@observablehq/user-retention-with-segments) templates</figcaption>`
-)}
 
 function _segment(Radio,segments){return(
 Radio(["all"].concat(segments), {label: "Segment", value: "all"})
@@ -14,9 +10,6 @@ function _3(CohortGrid,selectedSegment){return(
 CohortGrid(selectedSegment)
 )}
 
-function _4(md){return(
-md`This component (also known as an “impact plot” or “triangular heatmap”) expects to receive \`data\` in the form of an array of objects, with columns for \`cohort_date\`, \`period_date\`, \`period_number\`, \`users\`, and \`percentage\`. This can be produced from the \`processCohortData\` function, which preprocesses the simpler format explained in the [User Retention](/@observablehq/user-retention) notebook. It is assumed that the data has already been filtered (for example, by segment) for display in the grid.`
-)}
 
 function _CohortGrid(d3){return(
 function(data, {
@@ -277,13 +270,6 @@ function(data, {
 }
 )}
 
-function _6(md){return(
-md`---`
-)}
-
-function _7(md){return(
-md`## Imports and data for this instance`
-)}
 
 function _csv(FileAttachment){return(
 FileAttachment("example_cohorts.csv").csv({typed: true})
@@ -308,14 +294,6 @@ segment === "all"
 
 function _segments(data){return(
 Array.from(new Set(data.map(d => d.segment)))
-)}
-
-function _14(md){return(
-md`---
-## Data validation and preprocessing
-
-Used to prepare data for visualization with the cohort grid component.
-`
 )}
 
 function _validationRules(dateMismatch){return(
@@ -373,14 +351,6 @@ function(segmentData) {
 }
 )}
 
-function _19(md){return(
-md`---`
-)}
-
-function _20(md){return(
-md`## Imports for the component itself`
-)}
-
 function _d3(require){return(
 require("d3@6")
 )}
@@ -392,14 +362,10 @@ export default function define(runtime, observer) {
     ["example_cohorts.csv", {url: new URL("./files/0fad8177b01c0f822c5608a4951ca22dd0da3a60e7682c39ba1aa187a436b13fc76e79ce22fb87595f8830ab3ddab0c1aa3899965eb9d830d7d99653e0831f3b.csv", import.meta.url), mimeType: "text/csv", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
-  main.variable(observer()).define(["md"], _1);
   main.variable(observer("viewof segment")).define("viewof segment", ["Radio","segments"], _segment);
   main.variable(observer("segment")).define("segment", ["Generators", "viewof segment"], (G, _) => G.input(_));
   main.variable(observer()).define(["CohortGrid","selectedSegment"], _3);
-  main.variable(observer()).define(["md"], _4);
   main.variable(observer("CohortGrid")).define("CohortGrid", ["d3"], _CohortGrid);
-  main.variable(observer()).define(["md"], _6);
-  main.variable(observer()).define(["md"], _7);
   main.variable(observer("csv")).define("csv", ["FileAttachment"], _csv);
   main.variable(observer("data")).define("data", ["processCohortData","csv"], _data);
   main.variable(observer("rollupAllSegments")).define("rollupAllSegments", ["d3","csv"], _rollupAllSegments);
@@ -407,13 +373,8 @@ export default function define(runtime, observer) {
   main.variable(observer("segments")).define("segments", ["data"], _segments);
   const child1 = runtime.module(define1);
   main.import("Radio", child1);
-  main.variable(observer()).define(["md"], _14);
-  main.variable(observer("validationRules")).define("validationRules", ["dateMismatch"], _validationRules);
-  main.variable(observer("dateMismatch")).define("dateMismatch", ["d3"], _dateMismatch);
   main.variable(observer("processCohortData")).define("processCohortData", ["processSegment"], _processCohortData);
   main.variable(observer("processSegment")).define("processSegment", ["d3"], _processSegment);
-  main.variable(observer()).define(["md"], _19);
-  main.variable(observer()).define(["md"], _20);
   main.variable(observer("d3")).define("d3", ["require"], _d3);
   return main;
 }
